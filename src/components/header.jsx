@@ -1,4 +1,11 @@
+import { Link } from "react-router-dom";
+import Login from "./login";
+import { xContext } from "../context/userContext";
+import React, { useContext, useState, useEffect } from "react";
+
 const Header = () => {
+  const ctx = useContext(xContext);
+
   return (
     <header className="main-header">
       <div className="topbar">
@@ -11,9 +18,18 @@ const Header = () => {
               <a href="#" className="fab fa-instagram" />
             </div>
             {/* /.topbar__social */}
-            <a href="#">Login</a>
-            <a href="news.html">Company News</a>
-            <a href="faq.html">FAQs</a>
+            {ctx.loggedin ? (
+              <a>You are logged in</a>
+            ) : (
+              <>
+                <Link to={"/login"}>
+                  <a>Login</a>
+                </Link>
+                <Link to={"/signup"}>
+                  <a>Sign Up</a>
+                </Link>
+              </>
+            )}
           </div>
           {/* /.topbar__left */}
           <div className="topbar__right">

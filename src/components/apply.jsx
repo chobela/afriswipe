@@ -18,27 +18,19 @@ const Apply = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const headers = {
-      "Content-Type": "application/json",
-    };
-
     axios
-      .post(
-        "https://afriswipe.com/api/",
-        { headers },
-        JSON.stringify({
-          request: "storeloan",
-          amount: amount,
-          // income: income,
-          // purpose: purpose,
-          // months: months,
-          // fullname: fullname,
-          // email: email,
-          // phone: phone,
-          // married: married,
-          // birthdate: birthdate,
-        })
-      )
+      .post("https://afriswipe.com/api/", {
+        request: "storeloan",
+        amount: amount,
+        income: income,
+        purpose: purpose,
+        months: months,
+        fullname: fullname,
+        email: email,
+        phone: phone,
+        married: married,
+        birthdate: birthdate,
+      })
       .then((res) => {
         // console.log(res)
       })
@@ -490,7 +482,18 @@ const Apply = () => {
                         required=""
                       />
                     </div>
-                    {/* /.form-group*/}
+                  </div>
+                  <div className="col-md-4">
+                    <div className="form-group">
+                      <label>Upload Document</label>
+                      <input
+                        type="file"
+                        name="worknumber"
+                        className="form-control contact-one__form-input"
+                        placeholder="Document"
+                        required=""
+                      />
+                    </div>
                   </div>
                   {/* /.col-md-4*/}
                 </div>

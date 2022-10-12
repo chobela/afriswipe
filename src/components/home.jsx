@@ -66,8 +66,8 @@ const Home = () => {
                     <p>Simple &amp; Secure Payment Process</p>
                     <h2>Connecting Your Loan Needs</h2>
 
-                    <Link to={"/apply"}>
-                      <a className=" thm-btn">Apply For Loan</a>
+                    <Link className=" thm-btn" to={"/apply"}>
+                      <a>Apply For Loan</a>
                     </Link>
                   </div>
                   {/* /.col-lg-7 text-right */}
@@ -92,8 +92,8 @@ const Home = () => {
                     <p>Simple &amp; Secure Payment Process</p>
                     <h2>Connecting Your Loan Needs</h2>
 
-                    <Link to={"/apply"}>
-                      <a className=" thm-btn">Apply For Loan</a>
+                    <Link className=" thm-btn" to={"/apply"}>
+                      <a>Apply For Loan</a>
                     </Link>
                   </div>
                   {/* /.col-lg-7 text-right */}
@@ -117,8 +117,9 @@ const Home = () => {
                   <div className="col-xl-6 col-lg-6">
                     <p>Simple &amp; Secure Payment Process</p>
                     <h2>Connecting Your Loan Needs</h2>
-                    <Link to={"/apply"}>
-                      <a className=" thm-btn">Apply For Loan</a>
+
+                    <Link className="thm-btn" to={"/apply"}>
+                      <a>Apply For Loan</a>
                     </Link>
                     {/* /.thm-btn dynamic-radius */}
                   </div>
@@ -339,7 +340,7 @@ const Home = () => {
                       <i id="loan-total" />
                     </b>
                   </p>
-                  <Link className=" thm-btn" to={"/apply"}>
+                  <Link className="thm-btn" to={"/apply"}>
                     <a>Apply For Loan</a>
                   </Link>
                 </div>
@@ -1443,9 +1444,9 @@ const Home = () => {
           </div>
           {/* /.left-content */}
           <div className="right-content">
-            <a href="apply-now.html" className="thm-btn">
-              Apply For Loan
-            </a>
+            <Link className=" thm-btn" to={"/apply"}>
+              <a>Apply For Loan</a>
+            </Link>
             {/* /.thm-btn */}
           </div>
           {/* /.right-content */}

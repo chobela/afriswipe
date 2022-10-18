@@ -12,16 +12,17 @@ const Login = () => {
     e.preventDefault();
 
     axios
-      .post("https://afriswipe.com/api/", {
-        request: "login",
+      .post("http://38.242.204.36:8085/auth/login", {
         email: email,
         password: password,
       })
       .then((res) => {
-        ctx.updateUser();
+        console.log(res);
+        const token = res.data.data.access_token;
+
+        ctx.updateUser(token);
       })
       .catch((err) => {
-        ctx.updateUser();
         console.log(err);
       });
   };

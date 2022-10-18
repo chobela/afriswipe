@@ -5,9 +5,11 @@ export const xContext = createContext();
 
 const UserContext = (props) => {
   const [loggedin, setLoggedin] = useState(0);
+  const [token, setToken] = useState("");
 
-  const updateUser = () => {
-    setLoggedin(1);
+  const updateUser = (token) => {
+    // setLoggedin(1);
+    setToken(token);
   };
 
   //   useEffect(() => {
@@ -20,6 +22,7 @@ const UserContext = (props) => {
         value={{
           updateUser,
           loggedin,
+          token,
         }}
       >
         {props.children}

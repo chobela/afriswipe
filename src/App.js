@@ -7,6 +7,7 @@ import Apply from "./components/apply";
 import Login from "./components/login";
 import Signup from "./components/signup";
 import UserContext from "./context/userContext";
+import Applications from "./components/applications";
 
 function App() {
   return (
@@ -19,9 +20,7 @@ function App() {
             <Route path="/apply" element={<Apply />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            {/* <Route path="/households" element={<Households />} />
-                    <Route path="/children" element={<Vcas />} />
-                    <Route path="/household/:id" element={<Household />} /> */}
+            <Route path="/applications" element={<Applications />} />
           </Routes>
         </>
       </BrowserRouter>

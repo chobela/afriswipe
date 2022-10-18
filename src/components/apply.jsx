@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import { xContext } from "../context/userContext";
 
 const Apply = () => {
   const [selectedFile, setSelectedFile] = useState("");
@@ -7,30 +8,43 @@ const Apply = () => {
   const [income, setIncome] = useState();
   const [purpose, setPurpose] = useState();
   const [months, setMonths] = useState();
-  const [fullname, setFullname] = useState();
   const [email, setEmail] = useState();
   const [phone, setPhone] = useState();
-  const [married, setMarried] = useState();
+  const [nrc, setNrc] = useState();
   const [birthdate, setBirthdate] = useState();
   const [address, setAddress] = useState();
   const [employer, setEmployer] = useState();
 
+  const ctx = useContext(xContext);
+
+  const token = ctx.token;
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const options = {
+      headers: {
+        Authorization: "bearer " + token,
+      },
+    };
+
     axios
-      .post("https://afriswipe.com/api/", {
-        request: "storeloan",
-        amount: amount,
-        income: income,
-        purpose: purpose,
-        months: months,
-        fullname: fullname,
-        email: email,
-        phone: phone,
-        married: married,
-        birthdate: birthdate,
-      })
+      .post(
+        "http://38.242.204.36:8085/items/loans",
+        {
+          amount: amount,
+          monthly_income: income,
+          purpose: purpose,
+          months: months,
+          email: email,
+          phone: phone,
+          nrc: nrc,
+          birthdate: birthdate,
+          address: address,
+          employer: employer,
+        },
+        options
+      )
       .then((res) => {
         // console.log(res)
       })
@@ -79,7 +93,6 @@ const Apply = () => {
                 <div className="row">
                   <div className="col-md-12">
                     <div className="block-title">
-                      <p className="small-title">Calculate you loan amount</p>
                       <h2 className="title-block">Loan Details</h2>
                     </div>
                     {/* /.block-title*/}
@@ -162,7 +175,6 @@ const Apply = () => {
                 <div className="row">
                   <div className="col-md-12">
                     <div className="block-title">
-                      <p className="small-title">Ask for More Details</p>
                       <h2 className="title-block">Personal Details</h2>
                     </div>
                     {/* /.block-title*/}
@@ -171,24 +183,6 @@ const Apply = () => {
                 </div>
                 {/* /.row*/}
                 <div className="row">
-                  <div className="col-md-6">
-                    <div className="form-group">
-                      <label>
-                        Full Name <strong>[as per Taxpayer ID]</strong>
-                      </label>
-                      <input
-                        onChange={(e) => setFullname(e.target.value)}
-                        value={fullname}
-                        type="text"
-                        name="yourname"
-                        className="form-control contact-one__form-input"
-                        placeholder="Full Name"
-                        required=""
-                      />
-                    </div>
-                    {/* /.form-group*/}
-                  </div>
-                  {/* /.col-md-6*/}
                   <div className="col-md-6">
                     <div className="form-group">
                       <label>Email*</label>
@@ -204,7 +198,20 @@ const Apply = () => {
                     </div>
                     {/* /.form-group*/}
                   </div>
-                  {/* /.col-md-6*/}
+                  <div className="col-md-6">
+                    <div className="form-group">
+                      <label>Physical Address*</label>
+                      <input
+                        onChange={(e) => setAddress(e.target.value)}
+                        value={address}
+                        name="address"
+                        className="form-control contact-one__form-input"
+                        placeholder="Physical Address"
+                        required=""
+                      />
+                    </div>
+                    {/* /.form-group*/}
+                  </div>
                 </div>
                 {/* /.row*/}
                 <div className="row">
@@ -221,27 +228,7 @@ const Apply = () => {
                         required=""
                       />
                     </div>
-                    {/* /.form-group*/}
                   </div>
-                  {/* /.col-md-6*/}
-                  <div className="col-md-6">
-                    <div className="form-group">
-                      <label>Marital Status*</label>
-                      <input
-                        onChange={(e) => setMarried(e.target.value)}
-                        value={married}
-                        name="married"
-                        className="form-control contact-one__form-input"
-                        placeholder="Marital Status"
-                        required=""
-                      />
-                    </div>
-                    {/* /.form-group*/}
-                  </div>
-                  {/* /.col-md-6*/}
-                </div>
-                {/* /.row*/}
-                <div className="row">
                   <div className="col-md-6">
                     <div className="form-group">
                       <label>Birth Date*</label>
@@ -255,135 +242,24 @@ const Apply = () => {
                         required=""
                       />
                     </div>
-                    {/* /.form-group*/}
                   </div>
-                  {/* /.col-md-6*/}
                   <div className="col-md-6">
                     <div className="form-group">
-                      <label>Number Of Dependents*</label>
-                      <select
-                        name="numberofdependents"
-                        className="contact-one__form-input custom-select"
+                      <label>NRC Number*</label>
+                      <input
+                        onChange={(e) => setNrc(e.target.value)}
+                        value={nrc}
+                        type="text"
+                        name="nrc"
+                        className="form-control contact-one__form-input"
+                        placeholder="NRC Number"
                         required=""
-                      >
-                        <option value="0 Dependents">0 Dependents</option>
-                        <option value="1 Dependents">1 Dependents</option>
-                        <option value="2 Dependents">2 Dependents</option>
-                        <option value="3 Dependents">3 Dependents</option>
-                        <option value="4+ Dependents">4+ Dependents</option>
-                      </select>
+                      />
                     </div>
-                    {/* /.form-group*/}
                   </div>
-                  {/* /.col-md-6*/}
                 </div>
-                {/* /.row*/}
               </div>
-              {/* /.contact-one__form-box*/}
-              <div className="contact-one__form-box">
-                <div className="row">
-                  <div className="col-md-12">
-                    <div className="block-title">
-                      <p className="small-title">Street, City And State</p>
-                      <h2 className="title-block">Address Details</h2>
-                    </div>
-                    {/* /.block-title*/}
-                  </div>
-                  {/* /.col-md-12*/}
-                </div>
-                {/* /.row*/}
-                <div className="row">
-                  <div className="col-md-4">
-                    <div className="form-group">
-                      <label>House No/Name*</label>
-                      <input
-                        type="text"
-                        name="house-no"
-                        className="form-control contact-one__form-input"
-                        placeholder="House Number/Name"
-                        required=""
-                      />
-                    </div>
-                    {/* /.form-group*/}
-                  </div>
-                  {/* /.col-md-4*/}
-                  <div className="col-md-4">
-                    <div className="form-group">
-                      <label>Street*</label>
-                      <input
-                        type="text"
-                        name="street"
-                        className="form-control contact-one__form-input"
-                        placeholder="Street"
-                        required=""
-                      />
-                    </div>
-                    {/* /.form-group*/}
-                  </div>
-                  {/* /.col-md-4*/}
-                  <div className="col-md-4">
-                    <div className="form-group">
-                      <label>City*</label>
-                      <input
-                        type="text"
-                        name="city"
-                        className="form-control contact-one__form-input"
-                        placeholder="Birth Date"
-                        required=""
-                      />
-                    </div>
-                    {/* /.form-group*/}
-                  </div>
-                  {/* /.col-md-4*/}
-                </div>
-                {/* /.row*/}
-                <div className="row">
-                  <div className="col-md-4">
-                    <div className="form-group">
-                      <label>State*</label>
-                      <input
-                        type="text"
-                        name="state"
-                        className="form-control contact-one__form-input"
-                        placeholder="State"
-                        required=""
-                      />
-                    </div>
-                    {/* /.form-group*/}
-                  </div>
-                  {/* /.col-md-4*/}
-                  <div className="col-md-4">
-                    <div className="form-group">
-                      <label>Country*</label>
-                      <input
-                        type="text"
-                        name="country"
-                        className="form-control contact-one__form-input"
-                        placeholder="Country"
-                        required=""
-                      />
-                    </div>
-                    {/* /.form-group*/}
-                  </div>
-                  {/* /.col-md-4*/}
-                  <div className="col-md-4">
-                    <div className="form-group">
-                      <label>Pin Code*</label>
-                      <input
-                        type="number"
-                        name="pin"
-                        className="form-control contact-one__form-input"
-                        placeholder="Pin Code"
-                        required=""
-                      />
-                    </div>
-                    {/* /.form-group*/}
-                  </div>
-                  {/* /.col-md-4*/}
-                </div>
-                {/* /.row*/}
-              </div>
-              {/* /.contact-one__form-box*/}
+
               <div className="contact-one__form-box">
                 <div className="row">
                   <div className="col-md-12">
@@ -397,20 +273,6 @@ const Apply = () => {
                 </div>
                 {/* /.row*/}
                 <div className="row">
-                  <div className="col-md-6">
-                    <div className="form-group">
-                      <label>Employment Industry*</label>
-                      <input
-                        type="text"
-                        name="employmentindustry"
-                        className="form-control contact-one__form-input"
-                        placeholder="Employment Industry"
-                        required=""
-                      />
-                    </div>
-                    {/* /.form-group*/}
-                  </div>
-                  {/* /.col-md-6*/}
                   <div className="col-md-6">
                     <div className="form-group">
                       <label>Employer Name*</label>
@@ -430,59 +292,6 @@ const Apply = () => {
                 </div>
                 {/* /.row*/}
                 <div className="row">
-                  <div className="col-md-4">
-                    <div className="form-group">
-                      <label>Employer Status*</label>
-                      <select
-                        name="employer_status"
-                        className="contact-one__form-input custom-select"
-                        required=""
-                      >
-                        <option value="Full Time Employed">
-                          Full Time Employed
-                        </option>
-                        <option value="Part Time Employed">
-                          Part Time Employed
-                        </option>
-                        <option value="Self Employed">Self Employed</option>
-                        <option value="Temporarily Employed">
-                          Temporarily Employed
-                        </option>
-                        <option value="Student">Student</option>
-                        <option value="Pension">Pension</option>
-                        <option value="Disability">Disability</option>
-                        <option value="Unemployed">Unemployed</option>
-                      </select>
-                    </div>
-                    {/* /.form-group*/}
-                  </div>
-                  {/* /.col-md-4*/}
-                  <div className="col-md-4">
-                    <div className="form-group">
-                      <label>Length of Employment*</label>
-                      <input
-                        type="text"
-                        name="lengthemployment"
-                        className="form-control contact-one__form-input"
-                        placeholder="Length of Employment"
-                        required=""
-                      />
-                    </div>
-                    {/* /.form-group*/}
-                  </div>
-                  {/* /.col-md-4*/}
-                  <div className="col-md-4">
-                    <div className="form-group">
-                      <label>Work Phone Number*</label>
-                      <input
-                        type="number"
-                        name="worknumber"
-                        className="form-control contact-one__form-input"
-                        placeholder="Work Phone Number"
-                        required=""
-                      />
-                    </div>
-                  </div>
                   <div className="col-md-4">
                     <div className="form-group">
                       <label>Upload Document</label>

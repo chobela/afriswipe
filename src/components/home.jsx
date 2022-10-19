@@ -377,7 +377,7 @@ const Home = () => {
             <div className="col-lg-4">
               <div className="service-one__card">
                 <div className="service-one__image">
-                  <a href="service-details.html">
+                  <a href="">
                     <div className="post-thumbnail">
                       <img
                         src="assets/images/services/services-1-1.png"
@@ -388,20 +388,20 @@ const Home = () => {
                 </div>
                 {/* /.service-one__image */}
                 <div className="service-one__content">
-                  <a href="service-details.html">
+                  <a href="">
                     <div className="service-icon">
                       <i className="flaticon-car-loan" />
                     </div>
                   </a>
                   <h3>
-                    <a href="service-details.html">Personal Loan</a>
+                    <a href="#">Personal Loan</a>
                   </h3>
                   <p>
                     There are many variations of passages of lorem ipsum
                     available the majority have some.
                   </p>
                   <a
-                    href="service-details.html"
+                    href="#"
                     className="pylon-icon-right-arrow service-one__link"
                   />
                   {/* /.service-one__link */}
@@ -414,7 +414,7 @@ const Home = () => {
             <div className="col-lg-4">
               <div className="service-one__card">
                 <div className="service-one__image">
-                  <a href="service-details.html">
+                  <a href="#">
                     <div className="post-thumbnail">
                       <img
                         src="assets/images/services/services-1-2.png"
@@ -425,20 +425,20 @@ const Home = () => {
                 </div>
                 {/* /.service-one__image */}
                 <div className="service-one__content">
-                  <a href="service-details.html">
+                  <a href="#">
                     <div className="service-icon">
                       <i className="flaticon-online-money" />
                     </div>
                   </a>
                   <h3>
-                    <a href="service-details.html">Education Loan</a>
+                    <a href="#">Education Loan</a>
                   </h3>
                   <p>
                     There are many variations of passages of lorem ipsum
                     available the majority have some.
                   </p>
                   <a
-                    href="service-details.html"
+                    href="#"
                     className="pylon-icon-right-arrow service-one__link"
                   />
                   {/* /.service-one__link */}
@@ -451,7 +451,7 @@ const Home = () => {
             <div className="col-lg-4">
               <div className="service-one__card">
                 <div className="service-one__image">
-                  <a href="service-details.html">
+                  <a href="#">
                     <div className="post-thumbnail">
                       <img
                         src="assets/images/services/services-1-3.png"
@@ -462,20 +462,20 @@ const Home = () => {
                 </div>
                 {/* /.service-one__image */}
                 <div className="service-one__content">
-                  <a href="service-details.html">
+                  <a href="#">
                     <div className="service-icon">
                       <i className="flaticon-property-1" />
                     </div>
                   </a>
                   <h3>
-                    <a href="service-details.html">Business Loan</a>
+                    <a href="#">Business Loan</a>
                   </h3>
                   <p>
                     There are many variations of passages of lorem ipsum
                     available the majority have some.
                   </p>
                   <a
-                    href="service-details.html"
+                    href="#"
                     className="pylon-icon-right-arrow service-one__link"
                   />
                   {/* /.service-one__link */}
@@ -1220,23 +1220,18 @@ const Home = () => {
                       <i className="far fa-user" />
                       Admin
                     </a>
-                    <a href="news-details.html">
+                    <a href="#">
                       <i className="far fa-credit-card" />
                       Credit Card
                     </a>
                   </div>
                   {/* /.blog-card__meta */}
                   <h3>
-                    <a href="news-details.html">
-                      For Car auto you will get 90% loan amount
-                    </a>
+                    <a href="#">For Car auto you will get 90% loan amount</a>
                   </h3>
                   <div className="blog-card__bottom">
                     <div className="blog-card-bottom-readmore">
-                      <a
-                        href="news-details.html"
-                        className="readmore-card-link"
-                      >
+                      <a href="#" className="readmore-card-link">
                         <i className="pylon-icon-right-arrow" />
                         Read More
                       </a>
@@ -1268,16 +1263,14 @@ const Home = () => {
                       <i className="far fa-user" />
                       Admin
                     </a>
-                    <a href="news-details.html">
+                    <a href="#">
                       <i className="far fa-credit-card" />
                       Credit Card
                     </a>
                   </div>
                   {/* /.blog-card__meta */}
                   <h3>
-                    <a href="news-details.html">
-                      How to get education loan for overseas
-                    </a>
+                    <a href="#">How to get education loan for overseas</a>
                   </h3>
                   <div className="blog-card__bottom">
                     <div className="blog-card-bottom-readmore">
@@ -1316,23 +1309,18 @@ const Home = () => {
                       <i className="far fa-user" />
                       Admin
                     </a>
-                    <a href="news-details.html">
+                    <a href="#">
                       <i className="far fa-credit-card" />
                       Credit Card
                     </a>
                   </div>
                   {/* /.blog-card__meta */}
                   <h3>
-                    <a href="news-details.html">
-                      Easy way to calculate interest on a loan
-                    </a>
+                    <a href="#">Easy way to calculate interest on a loan</a>
                   </h3>
                   <div className="blog-card__bottom">
                     <div className="blog-card-bottom-readmore">
-                      <a
-                        href="news-details.html"
-                        className="readmore-card-link"
-                      >
+                      <a href="#" className="readmore-card-link">
                         <i className="pylon-icon-right-arrow" />
                         Read More
                       </a>
@@ -1474,7 +1462,7 @@ const Home = () => {
           <div className="row justify-content-between">
             <div className="col-lg-3 col-sm-6">
               <div className="footer-widget footer-widget__about">
-                <a href="index.html">
+                <a href="#">
                   <img src="assets/images/logo-light.png" width={155} alt="" />
                 </a>
                 <p>
@@ -1486,7 +1474,7 @@ const Home = () => {
                   <div className="footer-widget__about-phone-content">
                     <span>Call Anytime</span>
                     <h3>
-                      <a href="tel:+19812310000">+1 9812310000</a>
+                      <a href="#">+1 9812310000</a>
                     </h3>
                   </div>
                   {/* /.footer-widget__about-phone-content */}
@@ -1501,37 +1489,37 @@ const Home = () => {
                 <h3 className="footer-widget__title">Explore</h3>
                 <ul className="list-unstyled footer-widget__link-list">
                   <li>
-                    <a href="about.html">
+                    <a href="#">
                       <i className="fa fa-arrow-right" />
                       About
                     </a>
                   </li>
                   <li>
-                    <a href="services.html">
+                    <a href="#">
                       <i className="fa fa-arrow-right" />
                       Our Services
                     </a>
                   </li>
                   <li>
-                    <a href="news.html">
+                    <a href="#">
                       <i className="fa fa-arrow-right" />
                       Latest News
                     </a>
                   </li>
                   <li>
-                    <a href="testimonials.html">
+                    <a href="#">
                       <i className="fa fa-arrow-right" />
                       Testimonials
                     </a>
                   </li>
                   <li>
-                    <a href="contact.html">
+                    <a href="#">
                       <i className="fa fa-arrow-right" />
                       Contact
                     </a>
                   </li>
                   <li>
-                    <a href="loan-calculator.html">
+                    <a href="#">
                       <i className="fa fa-arrow-right" />
                       Loan Calculator
                     </a>
@@ -1554,9 +1542,7 @@ const Home = () => {
                     <div className="footer-widget__post-list-content">
                       <span>October 16, 2020</span>
                       <h3>
-                        <a href="news-details.html">
-                          We’re Providing the Quality Services
-                        </a>
+                        <a href="#">We’re Providing the Quality Services</a>
                       </h3>
                     </div>
                     {/* /.footer-widget__post-content */}
@@ -1569,9 +1555,7 @@ const Home = () => {
                     <div className="footer-widget__post-list-content">
                       <span>October 16, 2020</span>
                       <h3>
-                        <a href="news-details.html">
-                          We’re Providing the Quality Services
-                        </a>
+                        <a href="#">We’re Providing the Quality Services</a>
                       </h3>
                     </div>
                     {/* /.footer-widget__post-content */}
@@ -1587,7 +1571,7 @@ const Home = () => {
                 <h3>Contact</h3>
                 <ul className="list-unstyled footer-widget__contact-list">
                   <li>
-                    <a href="mailto:needhelp@company.com">
+                    <a href="#">
                       <i className="pylon-icon-email1" />
                       needhelp@company.com
                     </a>
@@ -1636,7 +1620,7 @@ const Home = () => {
         <div className="mobile-nav__content">
           <span className="mobile-nav__close mobile-nav__toggler" />
           <div className="logo-box">
-            <a href="index.html" aria-label="logo image">
+            <a href="#" aria-label="logo image">
               <img src="assets/images/logo-light.png" width={155} alt="" />
             </a>
           </div>
@@ -1646,11 +1630,11 @@ const Home = () => {
           <ul className="mobile-nav__contact list-unstyled">
             <li>
               <i className="pylon-icon-email1" />
-              <a href="mailto:needhelp@azino.com">needhelp@pylon.com</a>
+              <a href="#">needhelp@pylon.com</a>
             </li>
             <li>
               <i className="pylon-icon-telephone" />
-              <a href="tel:+19812310000">(+1) 9812310000</a>
+              <a href="#">(+1) 9812310000</a>
             </li>
           </ul>
           {/* /.mobile-nav__contact */}

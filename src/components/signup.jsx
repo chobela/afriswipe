@@ -1,11 +1,13 @@
 import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [firstname, setFirstname] = useState();
   const [lastname, setLastname] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,10 +18,10 @@ const Signup = () => {
         last_name: lastname,
         email: email,
         password: password,
-        status: "draft",
+        status: "active",
       })
       .then((res) => {
-        // console.log(res)
+        navigate("/login");
       })
       .catch((err) => {
         console.log(err);

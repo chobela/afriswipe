@@ -1,9 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
-import axios from "axios";
-import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import ReactSlider from "react-slider";
+import { xContext } from "../context/userContext";
 
 const Home = () => {
   const [amount, setAmount] = useState(1000);
@@ -11,6 +8,7 @@ const Home = () => {
   const [installments, setInstallments] = useState(0);
   const [total, setTotal] = useState(0);
   const rate = 0.4;
+  const ctx = useContext(xContext);
 
   const changeAmount = (value) => {
     setAmount(value);
@@ -65,10 +63,13 @@ const Home = () => {
                   <div className="col-xl-6 col-lg-6">
                     <p>Simple &amp; Secure Payment Process</p>
                     <h2>Connecting Your Loan Needs</h2>
-
-                    <Link className=" thm-btn" to={"/apply"}>
-                      <a>Apply For Loan</a>
-                    </Link>
+                    {ctx.token != "" ? (
+                      <Link className=" thm-btn" to={"/apply"}>
+                        <a>Apply For Loan</a>
+                      </Link>
+                    ) : (
+                      <></>
+                    )}
                   </div>
                   {/* /.col-lg-7 text-right */}
                 </div>
@@ -91,10 +92,13 @@ const Home = () => {
                   <div className="col-xl-6 col-lg-6">
                     <p>Simple &amp; Secure Payment Process</p>
                     <h2>Connecting Your Loan Needs</h2>
-
-                    <Link className=" thm-btn" to={"/apply"}>
-                      <a>Apply For Loan</a>
-                    </Link>
+                    {ctx.token != "" ? (
+                      <Link className=" thm-btn" to={"/apply"}>
+                        <a>Apply For Loan</a>
+                      </Link>
+                    ) : (
+                      <></>
+                    )}
                   </div>
                   {/* /.col-lg-7 text-right */}
                 </div>
@@ -117,10 +121,13 @@ const Home = () => {
                   <div className="col-xl-6 col-lg-6">
                     <p>Simple &amp; Secure Payment Process</p>
                     <h2>Connecting Your Loan Needs</h2>
-
-                    <Link className="thm-btn" to={"/apply"}>
-                      <a>Apply For Loan</a>
-                    </Link>
+                    {ctx.token != "" ? (
+                      <Link className="thm-btn" to={"/apply"}>
+                        <a>Apply For Loan</a>
+                      </Link>
+                    ) : (
+                      <></>
+                    )}
                     {/* /.thm-btn dynamic-radius */}
                   </div>
                   {/* /.col-lg-7 text-right */}
@@ -340,9 +347,13 @@ const Home = () => {
                       <i id="loan-total" />
                     </b>
                   </p>
-                  <Link className="thm-btn" to={"/apply"}>
-                    <a>Apply For Loan</a>
-                  </Link>
+                  {ctx.token != "" ? (
+                    <Link className="thm-btn" to={"/apply"}>
+                      <a>Apply For Loan</a>
+                    </Link>
+                  ) : (
+                    <></>
+                  )}
                 </div>
                 {/* /.about-one__from-content */}
               </form>
@@ -1444,9 +1455,13 @@ const Home = () => {
           </div>
           {/* /.left-content */}
           <div className="right-content">
-            <Link className=" thm-btn" to={"/apply"}>
-              <a>Apply For Loan</a>
-            </Link>
+            {ctx.token != "" ? (
+              <Link className=" thm-btn" to={"/apply"}>
+                <a>Apply For Loan</a> :
+              </Link>
+            ) : (
+              <></>
+            )}
             {/* /.thm-btn */}
           </div>
           {/* /.right-content */}

@@ -10,6 +10,11 @@ const Home = () => {
   const rate = 0.4;
   const ctx = useContext(xContext);
 
+  useEffect(() => {
+    ctx.updateAmount(amount);
+    ctx.updateMonths(months);
+  }, [amount, months]);
+
   const changeAmount = (value) => {
     setAmount(value);
     const total = rate * Number(value) + Number(value);
@@ -71,13 +76,10 @@ const Home = () => {
                       <></>
                     )}
                   </div>
-                  {/* /.col-lg-7 text-right */}
                 </div>
-                {/* /.row */}
               </div>
-              {/* /.container */}
             </div>
-            {/* /.swiper-slide */}
+
             <div className="swiper-slide">
               <div
                 className="image-layer"
@@ -86,7 +88,7 @@ const Home = () => {
                     "url(assets/images/main-slider/main-slider-1-2.jpg)",
                 }}
               />
-              {/* /.image-layer */}
+
               <div className="container">
                 <div className="row">
                   <div className="col-xl-6 col-lg-6">
@@ -100,13 +102,10 @@ const Home = () => {
                       <></>
                     )}
                   </div>
-                  {/* /.col-lg-7 text-right */}
                 </div>
-                {/* /.row */}
               </div>
-              {/* /.container */}
             </div>
-            {/* /.swiper-slide */}
+
             <div className="swiper-slide">
               <div
                 className="image-layer"
@@ -115,7 +114,7 @@ const Home = () => {
                     "url(assets/images/main-slider/main-slider-1-1.jpg)",
                 }}
               />
-              {/* /.image-layer */}
+
               <div className="container">
                 <div className="row">
                   <div className="col-xl-6 col-lg-6">
@@ -128,18 +127,12 @@ const Home = () => {
                     ) : (
                       <></>
                     )}
-                    {/* /.thm-btn dynamic-radius */}
                   </div>
-                  {/* /.col-lg-7 text-right */}
                 </div>
-                {/* /.row */}
               </div>
-              {/* /.container */}
             </div>
-            {/* /.swiper-slide */}
           </div>
-          {/* /.swiper-wrapper */}
-          {/* If we need navigation buttons */}
+
           <div className="main-slider__nav">
             <div
               className="swiper-button-prev"

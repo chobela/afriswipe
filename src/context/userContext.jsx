@@ -6,15 +6,25 @@ export const xContext = createContext();
 const UserContext = (props) => {
   const [loggedin, setLoggedin] = useState(0);
   const [token, setToken] = useState("");
+  const [amount, setAmount] = useState();
+  const [months, setMonths] = useState();
+  const [email, setEmail] = useState();
 
   const updateUser = (token) => {
-    // setLoggedin(1);
     setToken(token);
   };
 
-  //   useEffect(() => {
-  //     setLoggedin(0)
-  //   },[]);
+  const updateMonths = (months) => {
+    setMonths(months);
+  };
+
+  const updateAmount = (amount) => {
+    setAmount(amount);
+  };
+
+  const updateEmail = (email) => {
+    setEmail(email);
+  };
 
   return (
     <React.Fragment>
@@ -23,6 +33,12 @@ const UserContext = (props) => {
           updateUser,
           loggedin,
           token,
+          amount,
+          months,
+          email,
+          updateAmount,
+          updateMonths,
+          updateEmail,
         }}
       >
         {props.children}

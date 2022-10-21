@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { xContext } from "../context/userContext";
+import BounceLoader from "react-spinners/BounceLoader";
 
 const Applications = () => {
   const [loans, setLoans] = useState([]);
+  const [loading, setLoading] = useState(1);
 
   const ctx = useContext(xContext);
 
@@ -26,6 +28,7 @@ const Applications = () => {
         if (response.hasOwnProperty("data")) {
           console.log(response.data);
           setLoans(response.data);
+          setLoading(0);
         } else {
           // if (response.errors[0].message == "Token expired.") {
           //   navigation.navigate("Root");
@@ -46,22 +49,34 @@ const Applications = () => {
               <div className="contact-one__content">
                 <div className="block-title">
                   <p className="small-title">My Loan Applications</p>
-                  <h2 className="title-block">Active Applications</h2>
+                  <h2 className="title-block">My Applications</h2>
                 </div>
 
-                {loans.map((loan) => {
-                  return (
-                    <div className="contact-one__box">
-                      <i className="pylon-icon-email1" />
-                      <div className="contact-one__box-content">
-                        <h4>{loan.date_created}</h4>
-                        <h6>K{loan.amount}</h6>
-                        <p>Purpose : {loan.purpose}</p>
-                        <a href="">Pending Approval</a>
-                      </div>
+                {loading === 1 ? (
+                  <div className="col-md-12" style={{ float: "right" }}>
+                    <div className="form-group">
+                      <BounceLoader
+                        size={35}
+                        color={"#808080"}
+                        loading={true}
+                      />
                     </div>
-                  );
-                })}
+                  </div>
+                ) : (
+                  loans.map((loan) => {
+                    return (
+                      <div className="contact-one__box">
+                        <i className="pylon-icon-email1" />
+                        <div className="contact-one__box-content">
+                          <h4>{loan.date_created}</h4>
+                          <h6>K{loan.amount}</h6>
+                          <p>Purpose : {loan.purpose}</p>
+                          <a href="">Pending Approval</a>
+                        </div>
+                      </div>
+                    );
+                  })
+                )}
               </div>
             </div>
           </div>

@@ -1,15 +1,21 @@
 import { xContext } from "../context/userContext";
 import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
+import BounceLoader from "react-spinners/BounceLoader";
 
 const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [loading, setLoading] = useState(0);
+  const navigate = useNavigate();
 
   const ctx = useContext(xContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(1);
 
     axios
       .post("http://38.242.204.36:8085/auth/login", {
@@ -21,8 +27,14 @@ const Login = () => {
         const token = res.data.data.access_token;
 
         ctx.updateUser(token);
+        ctx.updateEmail(email);
+        navigate("/");
       })
       .catch((err) => {
+        swal({
+          text: "An Error occured. Please contact support",
+          icon: "warning",
+        });
         console.log(err);
       });
   };
@@ -103,7 +115,20 @@ const Login = () => {
                       />
                     </div>
                   </div>
-                  {/* /.col-md-6 */}
+                  {loading === 1 ? (
+                    <div className="col-md-12" style={{ float: "right" }}>
+                      <div className="form-group">
+                        <BounceLoader
+                          size={35}
+                          color={"#808080"}
+                          loading={true}
+                        />
+                      </div>
+                    </div>
+                  ) : (
+                    ""
+                  )}
+
                   <div className="col-md-12">
                     <button className="thm-btn" type="submit">
                       Login

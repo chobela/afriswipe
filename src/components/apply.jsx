@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { xContext } from "../context/userContext";
 import { useNavigate } from "react-router-dom";
+import BounceLoader from "react-spinners/BounceLoader";
+import swal from "sweetalert";
 
 const Apply = () => {
   const [selectedFile, setSelectedFile] = useState("");
@@ -15,14 +17,23 @@ const Apply = () => {
   const [birthdate, setBirthdate] = useState();
   const [address, setAddress] = useState();
   const [employer, setEmployer] = useState();
+  const [loading, setLoading] = useState(0);
   const navigate = useNavigate();
 
   const ctx = useContext(xContext);
+  console.log(ctx);
 
   const token = ctx.token;
 
+  useEffect(() => {
+    setAmount(ctx.amount);
+    setEmail(ctx.email);
+    setMonths(ctx.months);
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(1);
 
     const options = {
       headers: {
@@ -48,10 +59,14 @@ const Apply = () => {
         options
       )
       .then((res) => {
-        // console.log(res)
+        setLoading(0);
       })
       .catch((err) => {
         console.log(err);
+        swal({
+          text: "An Error occured. Please contact support",
+          icon: "warning",
+        });
       });
   };
 
@@ -197,6 +212,7 @@ const Apply = () => {
                           className="form-control contact-one__form-input"
                           placeholder="Your Email"
                           required=""
+                          readOnly="true"
                         />
                       </div>
                       {/* /.form-group*/}
@@ -238,7 +254,7 @@ const Apply = () => {
                         <input
                           onChange={(e) => setBirthdate(e.target.value)}
                           value={birthdate}
-                          type="text"
+                          type="date"
                           name="birthdate"
                           className="form-control contact-one__form-input"
                           placeholder="Birth Date"
@@ -313,7 +329,19 @@ const Apply = () => {
                   </div>
                   {/* /.row*/}
                 </div>
-                {/* /.contact-one__form-box*/}
+                {loading === 1 ? (
+                  <div className="col-md-12" style={{ float: "right" }}>
+                    <div className="form-group">
+                      <BounceLoader
+                        size={35}
+                        color={"#808080"}
+                        loading={true}
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  ""
+                )}
                 <div className="contact-one__form-submit">
                   <div className="row">
                     <div className="col-md-12">
